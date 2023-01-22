@@ -1,3 +1,4 @@
+###############################################
 class School:
     def __init__(self, name, code):
         self.name = name
@@ -16,21 +17,36 @@ class School:
         print("Classes: ")
         for class_code in self.classes:
             class_info = self.classes[class_code]
-            print("   Class Name: ", class_info.name)
-            print("   Class Code: ", class_info.code)
-            print("   Students: ")
+            print("Class Name: ", class_info.name)
+            print("Class Code: ", class_info.code)
+            print("Students: ")
             for student in class_info.students:
-                print("      Name: ", student.name)
-                print("      Birthdate: ", student.birthdate)
-                print("      ID: ", student.id)
-                print("      Major: ", student.major)
+                print("Name: ", student.name)
+                print("Birthdate: ", student.birthdate)
+                print("ID: ", student.id)
+                print("Major: ", student.major)
             print("   Teachers: ")
             for teacher in class_info.teachers:
-                print("      Name: ", teacher.name)
-                print("      ID: ", teacher.id)
-                print("      Birthdate: ", teacher.birthdate)
-                print("      Teacher Code: ", teacher.teacher_code)
-                print("      Hire Date: ", teacher.hire_date)
+                print("Name: ", teacher.name)
+                print("ID: ", teacher.id)
+                print("Birthdate: ", teacher.birthdate)
+                print("Teacher Code: ", teacher.teacher_code)
+                print("Hire Date: ", teacher.hire_date)
+
+class Person:
+    def __init__(self,fname,lname,birthdte,natcode):
+        self.fname = fname
+        self.lname = lname
+        self.birthdte = birthdte
+        self.natcode = natcode
+    
+
+    def read_person_info(self):
+        self.fname = input('enter first name: ')
+        self.lname = input('enter last name')
+        self.birthdte = input('enter birth date')
+        self.natcode = input('enter your national code')
+
 
 class Class:
     def __init__(self, name, code):
@@ -45,14 +61,14 @@ class Class:
     def add_teacher(self, name, id, birthdate, teacher_code, hire_date):
         self.teachers.append(Teacher(name, id, birthdate, teacher_code, hire_date))
 
-class Student:
+class Student(Person):
     def __init__(self, name, birthdate, id, major):
         self.name = name
         self.birthdate = birthdate
         self.id = id
         self.major = major
 
-class Teacher:
+class Teacher(Person):
     def __init__(self, name, id, birthdate, teacher_code, hire_date):
         self.name = name
         self.id = id
@@ -60,15 +76,17 @@ class Teacher:
         self.teacher_code = teacher_code
         self.hire_date = hire_date
         
-# Create an instance of School
-high_school = School("Example High School", "EHS123")
+# # Create an instance of School
+# high_school = School("Example High School", "EHS123")
 
-# Get number of classes from user
-num_classes = int(input("Enter the number of classes in the high school: "))
+# # Get number of classes from user
+# num_classes = int(input("Enter the number of classes in the high school: "))
 
-# Get information for each class
-for i in range(num_classes):
-    class_name = input("Enter the name of class: ")
-    class_code = input("Enter the code of class: ")
-    high_school.add_class(class_name, class_code)
-    
+# # Get information for each class
+# def get_info_from_class(num_classes):
+# for i in range(num_classes):
+#     class_name = input("Enter the name of class: ")
+#     class_code = input("Enter the code of class: ")
+#     high_school.add_class(class_name, class_code)
+#     high_school.add_class(class_name,class_code)
+
