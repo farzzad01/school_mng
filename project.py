@@ -1,4 +1,4 @@
-###############################################
+#############################
 class School:
     def __init__(self, name, code):
         self.name = name
@@ -39,13 +39,41 @@ class Person:
         self.lname = lname
         self.birthdte = birthdte
         self.natcode = natcode
-    
 
     def read_person_info(self):
         self.fname = input('enter first name: ')
         self.lname = input('enter last name')
         self.birthdte = input('enter birth date')
         self.natcode = input('enter your national code')
+    
+
+    def show_full_name(self):
+        print(f'first name is {self.fname}')
+    def show_birthdate(self):
+        print(f'birth date is {self.birthdte}')
+    def show_natcode(self):
+        print(f'nat code is {self.natcode}')
+
+
+    def get_first_name(self):
+        return self.fname 
+    def get_last_name(self):
+        return self.lname
+    def get_birthdate(self):
+        return self.birthdte
+    def get_natcode(self):
+        return self.natcode 
+
+    def show_all_info(self):
+        return f'name is {self.fname} {self.lname} birth date is s{self.birthdte} national code is {self.natcode}'
+
+
+    def delete_person(self):
+        del self.fname
+        del self.lname
+        del self.birthdte
+        del self.natcode
+
 
 
 class Class:
@@ -76,6 +104,11 @@ class Teacher(Person):
         self.teacher_code = teacher_code
         self.hire_date = hire_date
         
+
+    def show_teacher_code(self):
+        self.teacher_code
+
+
 # # Create an instance of School
 # high_school = School("Example High School", "EHS123")
 
@@ -90,3 +123,4 @@ class Teacher(Person):
 #     high_school.add_class(class_name, class_code)
 #     high_school.add_class(class_name,class_code)
 
+persoon1 = Person()
