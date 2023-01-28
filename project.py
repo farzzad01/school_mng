@@ -118,11 +118,21 @@ class Teacher(Person):
     def show_hire_time(self):
         print(f'hite time is {self.hite_tme}')
 
-    def show_teacher_inform(self):
-        super().read_person_info
-        self.read_teach_code()
-        self.read_hire_time()
+    def get_hire_time(self):
+        return self.hite_tme
+    
+    def get_teach_code(self):
+        return self.teach_code
 
+    def read_teacher_inform(self):
+        super().read_person_info
+        self.read_teach_code
+        self.read_hire_time
+
+    def show_teacher_inform(self):
+        super().show_all_info
+        self.show_hire_time()
+        self.show_teach_code()
 
 
 class Class:
