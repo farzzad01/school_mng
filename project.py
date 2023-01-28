@@ -67,12 +67,37 @@ class Person:
     def show_all_info(self):
         return f'name is {self.fname} {self.lname} birth date is s{self.birthdte} national code is {self.natcode}'
 
-
     def delete_person(self):
         del self.fname
         del self.lname
         del self.birthdte
         del self.natcode
+
+
+class Student(Person):
+    def __init__(self, fname, lname, birthdte, natcode, major):
+        super().__init__(fname, lname, birthdte, natcode)
+        self.major = major
+
+    def read_student_major(self):
+        self.major = input('enter major ')
+
+    def show_student_major(self):
+        print(f'major student is {self.major}')
+
+    def get_student_major(self):
+        return self.major
+
+    def read_student_info(self):
+        super().read_person_info
+        self.read_student_major()
+
+    def show_student_infom(self):
+        super().show_full_name
+        super().show_birthdate
+        super().show_natcode
+        self.show_student_major()
+
 
 
 
