@@ -3,7 +3,7 @@ class School:
     def __init__(self, name, code):
         self.name = name
         self.code = code
-        self.classes = {}
+        self.classes = []
         
     def add_class(self, class_name, class_code):
         self.classes[class_code] = Class(class_name, class_code)
@@ -99,7 +99,6 @@ class Student(Person):
         self.show_student_major()
 
 
-
 class Teacher(Person):
     def __init__(self, fname, lname, birthdte, natcode,teach_code,hite_tme):
         super().__init__(fname, lname, birthdte, natcode)
@@ -124,6 +123,9 @@ class Teacher(Person):
     def get_teach_code(self):
         return self.teach_code
 
+    def get_full_name(self):
+        return(f'name is {self.fname} {self.lname}')
+
     def read_teacher_inform(self):
         super().read_person_info
         self.read_teach_code
@@ -135,38 +137,54 @@ class Teacher(Person):
         self.show_teach_code()
 
 
-class Class:
-    def __init__(self, name, code):
-        self.name = name
-        self.code = code
+class Classes:
+    def __init__(self, class_name, class_code):
+        self.class_name = class_name
+        self.class_code = class_code
         self.students = []
-        self.teachers = []
+        self.teacher = Teacher()
         
+    def class_info(self):
+        num_stu = input('enter number of students')
+        self.students = num_stu
+
+    def read_class_code(self):
+        self.class_code = input('enter class name ')
+    def show_class_code(self):
+        print(f'class code is {self.class_code}')
+
+    def read_class_name(self):
+        self.class_name = input('enter class name')
+    def show_class_name(self):
+        print(f'class name is {self.class_name}')
+
+
     def add_student(self, name, birthdate, id, major):
         self.students.append(Student(name, birthdate, id, major))
         
-    def add_teacher(self, name, id, birthdate, teacher_code, hire_date):
-        self.teachers.append(Teacher(name, id, birthdate, teacher_code, hire_date))
 
-class Student(Person):
-    def __init__(self, name, birthdate, id, major):
-        self.name = name
-        self.birthdate = birthdate
-        self.id = id
-        self.major = major
+    def get_teacher_natcode(self):
+        return Teacher.get_natcode()
 
-class Teacher(Person):
-    def __init__(self, name, id, birthdate, teacher_code, hire_date):
-        self.name = name
-        self.id = id
-        self.birthdate = birthdate
-        self.teacher_code = teacher_code
-        self.hire_date = hire_date
-        
+    def show_teacher_name(self):
+        return Teacher.get_full_name
 
-    def show_teacher_code(self):
-        self.teacher_code
 
+    def read_class_info(self):
+        self.read_class_code()
+        self.read_class_name()
+        Teacher.read_teacher_inform()
+        for i in range(self.students + 1):
+            Student[i].read_student_info()
+
+    def show_class_info(self):
+        self.show_class_code
+        self.show_class_info
+        Teacher.show_teacher_inform()
+        for i in range(self.students + 1):
+            print(Student[i].show_student_infom)
+
+    
 
 # # Create an instance of School
 # high_school = School("Example High School", "EHS123")
@@ -182,4 +200,4 @@ class Teacher(Person):
 #     high_school.add_class(class_name, class_code)
 #     high_school.add_class(class_name,class_code)
 
-persoon1 = Person()
+persoon1 = Person('ali','ala','afdasd','124125')
