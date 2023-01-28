@@ -100,6 +100,30 @@ class Student(Person):
 
 
 
+class Teacher(Person):
+    def __init__(self, fname, lname, birthdte, natcode,teach_code,hite_tme):
+        super().__init__(fname, lname, birthdte, natcode)
+        self.teach_code = teach_code
+        self.hite_tme = hite_tme
+    
+    def read_teach_code(self):
+        self.teach_code = input('enter teacher code')
+    
+    def show_teach_code(self):
+        print(f'teacher code is {self.teach_code}')
+    
+    def read_hire_time(self):
+        self.hite_tme = input('enter hire time')
+
+    def show_hire_time(self):
+        print(f'hite time is {self.hite_tme}')
+
+    def show_teacher_inform(self):
+        super().read_person_info
+        self.read_teach_code()
+        self.read_hire_time()
+
+
 
 class Class:
     def __init__(self, name, code):
