@@ -1,9 +1,16 @@
 #############################
 
-
 class City:
-    def __init__(self):
+    def __init__(self,schools):
+        self.school_count = schools
         
+    def read_school(self):
+        school_count = int(input('enter count school'))
+
+    def read_all_info(self):
+        for s in range(self.school_count + 1):
+            School.get_class
+
 
 
 class School:
