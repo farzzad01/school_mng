@@ -40,6 +40,61 @@ class School:
                 print("Teacher Code: ", teacher.teacher_code)
                 print("Hire Date: ", teacher.hire_date)
 
+class School:
+    def __init__(self, name, code):
+        self.name = name
+        self.code = code
+        self.classes = {}
+        self.teachers = []
+        
+    def add_class(self, class_name, class_code):
+        self.classes[class_code] = Class(class_name, class_code)
+        
+    def get_class(self, class_code):
+        return self.classes[class_code]
+    
+    def add_teacher(self, name, id, birthdate, teacher_code, hire_date):
+        self.teachers.append(Teacher(name, id, birthdate, teacher_code, hire_date, self))
+        
+    def show_all_info(self):
+        print("School Name: ", self.name)
+        print("School Code: ", self.code)
+        print("Classes: ")
+        for class_code in self.classes:
+            class_info = self.classes[class_code]
+            print("   Class Name: ", class_info.name)
+            print("   Class Code: ", class_info.code)
+            print("   Students: ")
+            for student in class_info.students:
+                print("      Name: ", student.name)
+                print("      Birthdate: ", student.birthdate)
+                print("      ID: ", student.id)
+                print("      Major: ", student.major)
+            print("   Teachers: ")
+            for teacher in class_info.teachers:
+                print("      Name: ", teacher.name)
+                print("      ID: ", teacher.id)
+                print("      Birthdate: ", teacher.birthdate)
+                print("      Teacher Code: ", teacher.teacher_code)
+                print("      Hire Date: ", teacher.hire_date)
+                
+    def show_teacher_info(self, teacher_code):
+        for teacher in self.teachers:
+            if teacher.teacher_code == teacher_code:
+                print("Teacher Name: ", teacher.name)
+                print("Teacher ID: ", teacher.id)
+                print("Birthdate: ", teacher.birthdate)
+                print("Teacher Code: ", teacher.teacher_code)
+                print("Hire Date: ", teacher.hire_date)
+                print("School: ", teacher.school.name)
+                return
+        print("Teacher with code", teacher_code, "not found.")
+
+
+
+
+
+
 class Person:
     def __init__(self,fname,lname,birthdte,natcode):
         self.fname = fname
