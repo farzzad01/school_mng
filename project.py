@@ -1,12 +1,19 @@
 #############################
+
+
+class City:
+    def __init__(self):
+        
+
+
 class School:
     def __init__(self, name, code):
         self.name = name
         self.code = code
-        self.classes = []
+        self.classes = Classes
         
     def add_class(self, class_name, class_code):
-        self.classes[class_code] = Class(class_name, class_code)
+        self.classes[class_code] = Classes(class_name, class_code)
         
     def get_class(self, class_code):
         return self.classes[class_code]
@@ -158,6 +165,10 @@ class Classes:
     def show_class_name(self):
         print(f'class name is {self.class_name}')
 
+    def get_class_code(self):
+        return self.class_code
+    def get_class_name(self):
+        return self.class_name
 
     def add_student(self, name, birthdate, id, major):
         self.students.append(Student(name, birthdate, id, major))
@@ -184,20 +195,38 @@ class Classes:
         for i in range(self.students + 1):
             print(Student[i].show_student_infom)
 
+    def find_stu_by_fullname(self,fname,lname):
+        find = False
+        for i in range(Student + 1):
+            if fname == Student[i].get_first_name():
+                if lname == Student[i].get_last_name():
+                    print(f'student : {Student[i]} founded ')
+                    Student[i].show_full_name()
+                    find = True
+        return find
     
+    def show_teacher_of_class(self):
+        Teacher.show_full_name
 
-# # Create an instance of School
-# high_school = School("Example High School", "EHS123")
 
-# # Get number of classes from user
-# num_classes = int(input("Enter the number of classes in the high school: "))
+class Class:
+    def __init__(self, name, code):
+        self.name = name
+        self.code = code
+        self.students = []
+        self.teachers = []
+        
+    def add_student(self, name, birthdate, id, major):
+        self.students.append(Student(name, birthdate, id, major))
+        
+    def add_teacher(self, name, id, birthdate, teacher_code, hire_date):
+        self.teachers.append(Teacher(name, id, birthdate, teacher_code, hire_date))
 
-# # Get information for each class
-# def get_info_from_class(num_classes):
-# for i in range(num_classes):
-#     class_name = input("Enter the name of class: ")
-#     class_code = input("Enter the code of class: ")
-#     high_school.add_class(class_name, class_code)
-#     high_school.add_class(class_name,class_code)
+class Student:
+    def __init__(self, name, birthdate, id, major):
+        self.name = name
+        self.birthdate = birthdate
+        self.id = id
 
-persoon1 = Person('ali','ala','afdasd','124125')
+
+
